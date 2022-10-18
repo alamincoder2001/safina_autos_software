@@ -511,7 +511,9 @@
 				})
 			},
 			async getCustomers() {
-				await axios.post('/get_customers').then(res => {
+				await axios.post('/get_customers', {
+					customerType: this.sales.salesType
+				}).then(res => {
 					this.customers = res.data;
 					this.customers.unshift({
 						Customer_SlNo: 'C01',
